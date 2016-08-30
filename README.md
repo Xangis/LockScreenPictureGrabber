@@ -16,4 +16,4 @@ This software is released under the MIT license.
 
 Let me know if you have any issues. Pull requests accepted.
 
-![Lock Screen Picture Grabber](https://github.com/Xangis/LockScreenPictureGrabber/images/LockScreenImageSaver.png)
+![Lock Screen Picture Grabber](https://github.com/Xangis/LockScreenPictureGrabber/blob/master/images/LockScreenImageSaver.png)
