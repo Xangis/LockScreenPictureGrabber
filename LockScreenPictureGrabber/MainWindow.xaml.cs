@@ -34,27 +34,35 @@ namespace LockScreenPictureGrabber
             var orderedFiles = files.OrderBy(f => f.CreationTime);
             foreach (FileSystemInfo file in files)
             {
-                Image image = new Image();
-                BitmapImage bmp = new BitmapImage();
-                bmp.BeginInit();
-                bmp.UriSource = new Uri(file.FullName);
-                bmp.EndInit();
-                image.Source = bmp;
-                image.Width = 240;
-                if (image.Height > 300)
+                try
                 {
-                    image.Height = 300;
+                    Image image = new Image();
+                    BitmapImage bmp = new BitmapImage();
+                    bmp.BeginInit();
+                    bmp.UriSource = new Uri(file.FullName);
+                    bmp.EndInit();
+                    image.Source = bmp;
+                    image.Width = 240;
+                    if (image.Height > 300)
+                    {
+                        image.Height = 300;
+                    }
+                    listBox1.Items.Add(image);
                 }
-                listBox1.Items.Add(image);
+                catch( NotSupportedException e)
+                {
+                    // Pass. We ignore files that we don't know how to handle.
+                }
             }
-            textBox1.Text = "Image.jpg";
+            textBox1.Text = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures) + "\\Image.jpg";
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             String filename = ((BitmapImage)((Image)listBox1.SelectedItem).Source).UriSource.AbsolutePath;
-            String destinationPath = "C:\\Users\\Xangis\\Pictures\\" + textBox1.Text;
+            String destinationPath = textBox1.Text;
             File.Copy(filename, destinationPath);
+            MessageBox.Show("Image saved to " + destinationPath);
         }
     }
 }

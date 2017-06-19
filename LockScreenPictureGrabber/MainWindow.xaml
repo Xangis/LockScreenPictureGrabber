@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Lock Screen Image Saver" Height="664" Width="796">
     <Grid>
-        <ListBox Height="554" HorizontalAlignment="Left" Margin="0,32,0,0" Name="listBox1" VerticalAlignment="Top" Width="774" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        <ListBox Height="554" HorizontalAlignment="Left" Margin="0,32,0,0" Name="listBox1" Background="LightGray" VerticalAlignment="Top" Width="774" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel IsItemsHost="True" />
